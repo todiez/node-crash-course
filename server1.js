@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const _ = require("lodash");
 
 const server = http.createServer((req, res) => {
   console.log("request made");
@@ -18,7 +19,7 @@ const server = http.createServer((req, res) => {
       path += "about.html";
       res.statusCode = 200;
       break;
-      case "/about-me":
+      case "/about-me2":
         res.statusCode = 301;
         res.setHeader("Location", "/about")
         res.end();
