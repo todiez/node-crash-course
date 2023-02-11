@@ -18,13 +18,13 @@ app.get("/about", (req, res) => {
 });
 
 
-//redirect
+// redirects
 app.get('/about-us', (req, res) => {
-    res.send('/about');
-});
+    res.redirect('/about');
+  });
 
 
 //404 (use will just used if not other function was fired)
 app.use((req, res) => {
-    res.sendFile("./views/404.html", {root: __dirname});
+    res.status(404).sendFile("./views/404.html", {root: __dirname});
 })
