@@ -4,12 +4,21 @@ const express = require('express');
 // express app
 const app = express();
 
+// register view engine
+app.set('view engine', 'ejs');
+
 // listen for requests
 app.listen(3000);
 
-// register view engine
-app.set('view engine', 'ejs');
-// app.set('views', 'myviews');
+app.use((req, res, next) => {
+  console.log('new request made:');
+  console.log('host: ', req.hostname);
+  console.log('path: ', req.path);
+  console.log('method: ', req.method);
+  next();
+});
+
+
 
 app.get('/', (req, res) => {
   const blogs = [
