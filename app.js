@@ -2,6 +2,9 @@
 const express = require('express');
 const morgan = require("morgan");
 
+//connect to mongoDB
+const dbURI = "mongodb+srv://toby:<Test.1234>@nodecrashcourse.ufuzor7.mongodb.net/?retryWrites=true&w=majority"
+
 // express app
 const app = express();
 
@@ -11,6 +14,8 @@ app.set('view engine', 'ejs');
 // listen for requests
 app.listen(3000);
 
+//middleware and static files
+app.use(express.static("public"));
 app.use(morgan("dev"));
 
 app.get('/', (req, res) => {
