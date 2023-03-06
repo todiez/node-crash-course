@@ -1,9 +1,6 @@
-version: "3"
-
+version: "2"
 services:
-  node-crash-course:
-
+  
     build: .
     ports:
       - "3000:3000"
-    command: node app.js
