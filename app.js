@@ -1,18 +1,21 @@
 
 const express = require('express');
 const morgan = require("morgan");
-
-//connect to mongoDB
-const dbURI = "mongodb+srv://toby:<Test.1234>@nodecrashcourse.ufuzor7.mongodb.net/?retryWrites=true&w=majority"
+const mongoose = require("mongoose");
 
 // express app
 const app = express();
 
+//connect to mongoDB
+const dbURI = "mongodb+srv://toby:Test.1234@nodecrashcourse.ufuzor7.mongodb.net/node-tutorial?retryWrites=true&w=majority"
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) => app.listen(3000))
+  .catch((err) => console.log(err));
+
+
 // register view engine
 app.set('view engine', 'ejs');
 
-// listen for requests
-app.listen(3000);
 
 //middleware and static files
 app.use(express.static("public"));
